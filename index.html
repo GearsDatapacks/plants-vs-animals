@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="shortcut icon" type="image/png" href="icon.png">
+    <title>plants vs animals</title>
+  </head>
+  <body>
+    <svg>     
+      <path id="path"
+      fill="gray"/>
+      
+      <g id="sycamore">
+        <ellipse
+        id="one"
+        rx="9"
+        ry="25" 
+        cx="165"
+        cy="170"
+        fill="brown"/>
+        
+        <ellipse
+        id="two"
+        rx="9"
+        ry="25" 
+        cx="165"
+        cy="170"
+        fill="brown"/>
+        
+        <circle
+        cx="150"
+        cy="190"
+        fill="brown"
+        r="10"/>
+      </g>
+      
+      <g id="beemove">
+        <g id="bee">
+          <clipPath id="beebody">
+            <ellipse
+            rx="25"
+            ry="9" 
+            cx="25"
+            cy="275"/>
+          </clipPath>
+          
+          <g clip-path="url(#beebody)">
+            <ellipse
+            rx="25"
+            ry="9" 
+            cx="25"
+            cy="275"
+            fill="yellow"/>
+            
+            <line
+            x1="2.5"
+            x2="2.5"
+            y1="250"
+            y2="300"
+            stroke="black"
+            stroke-width="5"/>
+            
+            <line
+            x1="12.5"
+            x2="12.5"
+            y1="250"
+            y2="300"
+            stroke="black"
+            stroke-width="5"/>
+            
+            <line
+            x1="22.5"
+            x2="22.5"
+            y1="250"
+            y2="300"
+            stroke="black"
+            stroke-width="5"/>
+            
+            <line
+            x1="32.5"
+            x2="32.5"
+            y1="250"
+            y2="300"
+            stroke="black"
+            stroke-width="5"/>
+            
+            <line
+            x1="42.5"
+            x2="42.5"
+            y1="250"
+            y2="300"
+            stroke="black"
+            stroke-width="5"/>
+          </g>
+          
+          <g>
+          <ellipse
+            rx="5"
+            ry="12" 
+            cx="25"
+            cy="260"
+            fill="lightgray"/>
+            
+            <ellipse
+            rx="5"
+            ry="12" 
+            cx="25"
+            cy="290"
+            fill="lightgray"/>
+            </g>
+          </g>
+        </g>
+      </g>
+
+      <g id="tree">
+        <line stroke-width="7" stroke="brown" x1="350" y1="200" x2="350" y2="275"></line>
+        <path fill="green" stroke="green" stroke-width="5" d="M350,200 l25,35 M350,220 l25,35 M350,200 l-25,35 M350,220 l-25,35"/>
+      </g>
+    </svg>
+    
+    <script src="app.js"></script>
+  </body>
+</html>
+

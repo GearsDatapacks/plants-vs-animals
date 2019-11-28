@@ -24,10 +24,6 @@ g#bee {
   transform: rotate(45deg);
 }
 
-g#beemove {
-  animation: 5s linear infinite forwards fly;
-}
-
 g#tree {
 	transform: scale(2);
 }
@@ -47,23 +43,5 @@ g#tree {
   
   80% {
     transform: translate(0, 0);
-  }
-}
-
-@keyframes fly {
-  0% {
-    transform: translate(-25px, 0);
-  }
-  
-  12% {
-    transform: translate(125px, 50px);
-  }
-  
-  87% {
-    transform: translate(750px, -50px);
-  }
-  
-  100% {
-    transform: translate(1000px, 0px);
   }
 }

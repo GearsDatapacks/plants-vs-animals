@@ -15,7 +15,7 @@ ellipse#two {
   transform: rotate(-25deg) translate(-25px, -10px);
 }
 
-g#sycamore {
+g#sycamore[data-moving=true] {
   animation: 5s linear infinite forwards swing;
 }
 

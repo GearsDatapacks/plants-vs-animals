@@ -15,8 +15,13 @@ ellipse#two {
   transform: rotate(-25deg) translate(-25px, -10px);
 }
 
-g#sycamore[data-moving=true] {
+g#sycamore {
   animation: 5s linear infinite forwards swing;
+  animation-play-state: paused;
+}
+
+g#sycamore[data-moving=true] {
+  animation-play-state: running;
 }
 
 g#bee {
@@ -26,6 +31,10 @@ g#bee {
 
 g#tree {
 	transform: scale(2);
+}
+
+svg[data-paused=true] * {
+  animation-play-state: paused;
 }
 
 @keyframes swing {

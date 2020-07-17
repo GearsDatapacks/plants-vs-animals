@@ -6,9 +6,13 @@ const bee = document.getElementById('beemove');
 const sycamore = document.getElementById('sycamore');
 const healthText = document.getElementById('health');
 const sycamoreRange = document.getElementById('range');
+const pauseButton = document.getElementById('pause-button');
+const svg = document.querySelector('svg');
+const pauseIcon = document.getElementById('pause-play');
 let health = 100;
 let beeStats;
 let sycamoreStats;
+let paused = false;
 
 fetch('plants.json', {
     headers: {
@@ -19,10 +23,10 @@ fetch('plants.json', {
   .then(function (response) {
     return response.json();
   })
-  .then(onSuccess)
+  .then(plantSuccess)
   .catch(onError);
 
-function onSuccess (plants) {
+function plantSuccess (plants) {
   sycamoreStats = plants.sycamore;
 }
 
@@ -40,10 +44,10 @@ fetch('animals.json', {
   .then(function (response) {
     return response.json();
   })
-  .then(onSuccess)
+  .then(animalSuccess)
   .catch(onError);
 
-function onSuccess (animals) {
+function animalSuccess (animals) {
   beeStats = animals.bee;
   sycamoreCheck();
   changeHealth(0);
@@ -89,9 +93,8 @@ function sycamoreCheck () {
   
   else {
     sycamore.setAttribute('data-moving', 'false');
+    setTimeout(sycamoreCheck, 5);
   }
-  
-  setTimeout(sycamoreCheck, 5);
 }
 
 function setPathWidth () {
@@ -99,7 +102,7 @@ function setPathWidth () {
 }
 
 function setAnimalAnimation () {
-  style.textContent = `g#beemove {
+  style.textContent = `g[data-animal] {
         animation: ${window.innerWidth / 100}s linear infinite forwards fly;
       }
       
@@ -136,4 +139,22 @@ function changeHealth (num) {
   healthBar.setAttribute('width', `${window.innerWidth / 200 * health}`);
 }
 
+pauseButton.addEventListener('click', () => {
+  if (paused === false) {
+    svg.setAttribute('data-paused', true);
+    sycamore.setAttribute('data-moving', false);
+    pauseIcon.setAttribute('d', 'M20, 15 l20, 15 l-20, 15 z');
+    pauseIcon.setAttribute('fill', 'black');
+    paused = true;
+  }
+  
+  else {
+    svg.setAttribute('data-paused', false);
+    sycamore.setAttribute('data-moving', true);
+    pauseIcon.setAttribute('d', 'M22.5, 15 l0, 30 m15, 0 l0, -30');
+    pauseIcon.setAttribute('fill', 'none');
+    paused = false;
+  }
+});
 bee.addEventListener('animationiteration', () => {changeHealth(Number(`-${beeStats.damage}`));});
+sycamore.addEventListener('animationiteration', sycamoreCheck);

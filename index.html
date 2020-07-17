@@ -10,6 +10,24 @@
   </head>
   <body>
     <svg>
+      
+      <g id="pause-button">
+        <rect 
+        width="50"
+        height="50"
+        x="5"
+        y="5"
+        fill="blue"
+        stroke="black"
+        stroke-width="5"/>
+        
+        <path
+        id="pause-play"
+        fill="none"
+        stroke="black"
+        stroke-width="5"
+        d="M22.5, 15 l0, 30 m15, 0 l0, -30"/>
+      </g>
     
       <rect
       id="shadowHealth"
@@ -32,7 +50,7 @@
       
       <circle id="range" opacity="0" cx="150" cy="190" r="150"/>
       
-      <g id="sycamore">
+      <g id="sycamore" data-plant>
         <ellipse
         id="one"
         rx="9"
@@ -56,7 +74,7 @@
         r="10"/>
       </g>
       
-      <g id="beemove">
+      <g id="beemove" data-animal>
         <g id="bee">
           <clipPath id="beebody">
             <ellipse
